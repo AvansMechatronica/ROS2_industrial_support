@@ -26,7 +26,15 @@
                   iyy="${m*(x*x+z*z)/12}" iyz = "0"
                   izz="${m*(x*x+z*z)/12}" /> 
 </macro>
+-->
 
+  <xacro:macro name="box_inertia" params="m x y z">
+    <inertia ixx="${0.0833333 * m * (y*y + z*z)}" ixy="0.0" ixz="0.0"
+      iyy="${0.0833333 * m * (x*x + z*z)}" iyz="0.0"
+      izz="${0.0833333 * m * (x*x + y*y)}" />
+  </xacro:macro>
+
+<!--
 <macro name="sphere_inertia" params="m r">
         <inertia  ixx="${2*m*r*r/5}" ixy = "0" ixz = "0"
                   iyy="${2*m*r*r/5}" iyz = "0"
@@ -75,7 +83,7 @@
       </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <!--<xacro:box_inertia m="${dummy_mass}" x="${depth}" y="${width}" z="${dummy_thickness}"/>-->
+        <xacro:box_inertia m="${dummy_mass}" x="${depth}" y="${width}" z="${dummy_thickness}"/>
         <mass value="${dummy_mass}" />
       </inertial>
     </link>
@@ -95,7 +103,7 @@
       </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <!--<xacro:box_inertia m="${dummy_mass}" x="${depth}" y="${height}" z="${dummy_thickness}"/>-->
+        <xacro:box_inertia m="${dummy_mass}" x="${depth}" y="${height}" z="${dummy_thickness}"/>
         <mass value="${dummy_mass}" />
       </inertial>
     </link>
@@ -121,7 +129,7 @@
       </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <!--<xacro:box_inertia m="${dummy_mass}" x="${height}" y="${width}" z="${dummy_thickness}"/>-->
+        <xacro:box_inertia m="${dummy_mass}" x="${height}" y="${width}" z="${dummy_thickness}"/>
         <mass value="${dummy_mass}" />
       </inertial>
     </link>
@@ -148,7 +156,7 @@
       </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <!--<xacro:box_inertia m="${dummy_mass}" x="${depth}" y="0.5" z="${dummy_thickness}"/>-->
+        <xacro:box_inertia m="${dummy_mass}" x="${depth}" y="0.5" z="${dummy_thickness}"/>
         <mass value="${dummy_mass}" />
       </inertial>
     </link>
@@ -175,7 +183,7 @@
       </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <!--<xacro:box_inertia m="${dummy_mass}" x="0.5" y="${width}" z="${dummy_thickness}"/>-->
+        <xacro:box_inertia m="${dummy_mass}" x="0.5" y="${width}" z="${dummy_thickness}"/>
         <mass value="${dummy_mass}" />
 
       </inertial>
