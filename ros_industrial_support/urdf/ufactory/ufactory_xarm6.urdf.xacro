@@ -50,7 +50,7 @@
   <xacro:arg name="mesh_suffix" default="stl"/>
 
   <xacro:arg name="kinematics_suffix" default=""/>
-  <xacro:arg name="xarm_link" default="${prefix}xarm_link"/>
+  <xacro:arg name="xarm_link" default="${prefix}base_link"/>
 
   <!-- load xarm device -->
   <xacro:include filename="$(find xarm_description)/urdf/xarm_device_macro.xacro" />
@@ -68,10 +68,18 @@
     geometry_mesh_tcp_xyz="$(arg geometry_mesh_tcp_xyz)" geometry_mesh_tcp_rpy="$(arg geometry_mesh_tcp_rpy)"
     robot_ip="$(arg robot_ip)" report_type="$(arg report_type)"
     baud_checkset="$(arg baud_checkset)" default_gripper_baud="$(arg default_gripper_baud)"
-    model1300="$(arg model1300)" attach_to="${prefix}xarm_link" attach_xyz="$(arg attach_xyz)" attach_rpy="$(arg attach_rpy)"
+    model1300="$(arg model1300)" attach_to="${prefix}base_link" attach_xyz="$(arg attach_xyz)" attach_rpy="$(arg attach_rpy)"
     robot_sn="$(arg robot_sn)" use_gazebo_camera="$(arg use_gazebo_camera)" mesh_suffix="$(arg mesh_suffix)" kinematics_suffix="$(arg kinematics_suffix)" />
 
-  <link name="${prefix}xarm_link"/>
+  <link name="${prefix}base_link"/>
+  <link name="${prefix}tool_link"/>
+
+  <joint name="${prefix}tool_link" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="${prefix}link6" />
+    <child link="${prefix}tool_link" />
+  </joint>
+
 
   </xacro:macro>
 </robot>
