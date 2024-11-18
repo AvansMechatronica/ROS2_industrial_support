@@ -76,7 +76,7 @@
 
   <joint name="${prefix}tool_link" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <parent link="${prefix}link6" />
+    <parent link="${prefix}link_eef" />
     <child link="${prefix}tool_link" />
   </joint>
 
