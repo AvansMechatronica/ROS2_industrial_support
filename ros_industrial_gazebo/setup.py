@@ -39,7 +39,7 @@ setup(
     name=package_name,
     version='0.0.0',
     packages=find_packages(exclude=['test']),
-    data_files=package_files(data_files, ['models/', 'meshes/']),
+    data_files=package_files(data_files, ['models/', 'meshes/', 'launch/']),
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='gerard',
